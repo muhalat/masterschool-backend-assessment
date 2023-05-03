@@ -8,7 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 import favoritesRoutes from "./routes/favoritesRoutes.js";
 import connectDB from "./config/db.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 connectDB();
 
 const app = express();
