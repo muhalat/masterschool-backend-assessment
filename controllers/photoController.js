@@ -86,6 +86,11 @@ export const getPhotoRoutes = asyncHandler(async (req, res) => {
 
 export const getPhotoByIdRoute = asyncHandler(async (req, res) => {
   try {
+    const photo = data.find((p) => p.id === req.params.id);
+
+    if (!photo) {
+      return res.status(404).json({ message: "Not found." });
+    }
     const response = await axios.get(
       `https://api.unsplash.com/photos/${req.params.id}?client_id=${accessKey}`
     );
